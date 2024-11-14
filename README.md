@@ -21,7 +21,6 @@ The ContactMS interface consists of a single page with a client table. Each clie
 
 ### Technologies Used
 The project is built using modern web development tools and technologies to ensure a smooth and responsive user experience. The core technologies include:
-- **JavaScript**: Provides interactivity and dynamic functionality on the client side.
 - **TypeScript**: Enforces type safety and improves code quality.
 - **Vite**: Build tool that offers a fast development environment and optimized production builds.
 - **Zod**: Library for validation and schema definition, ensuring reliable data handling.
