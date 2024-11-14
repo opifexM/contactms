@@ -1,0 +1,405 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e1dcdc;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  margin: 0 auto;
+  width: 80%;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th.sortable {
+  cursor: pointer;
+  position: relative;
+}
+
+th.sorted-asc::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  background-image: url('./image/arrow_up.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 14px;
+  width: 14px;
+}
+
+th.sorted-desc::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  background-image: url('./image/arrow_down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 14px;
+  width: 14px;
+}
+
+thead th {
+  text-align: left;
+  background-color: #f7f7f7;
+  padding: 12px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #c8c6c6;
+  cursor: pointer;
+}
+
+thead th.sortable:hover {
+  color: #9b59b6;
+}
+
+table tr {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.2s;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}
+
+table tr td {
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.contacts .icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.icon-phone {
+  background-image: url('./image/phone.svg');
+}
+
+.icon-email {
+  background-image: url('./image/mail.svg');
+}
+
+.icon-facebook {
+  background-image: url('./image/fb.svg');
+}
+
+.icon-vk {
+  background-image: url('./image/vk.svg');
+}
+
+.icon-other {
+  background-image: url('./image/other.svg');
+}
+
+.icon-other6 {
+  background-image: url('./image/other6.svg');
+}
+
+button {
+  padding: 10px 10px 10px 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+.edit {
+  background-image: url('./image/edit.svg');
+}
+
+.edit:active {
+  color: #9b59b6;
+  background-image: url('./image/load.svg');
+}
+
+.delete {
+  background-image: url('./image/cancel.svg');
+}
+
+.delete:active {
+  color: #be0c0c;
+  background-image: url('./image/load.svg');
+}
+
+.add-client {
+  display: block;
+  margin: 20px auto 0;
+  padding: 12px 24px 12px 40px;
+  font-size: 14px;
+  color: #9b59b6;
+  background-color: #fff;
+  background-image: url('./image/new.svg');
+  background-repeat: no-repeat;
+  background-position: left 10px center;
+  border: 1px solid #9b59b6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-client:hover {
+  background-color: #9b59b6;
+  color: #fff;
+}
+
+.sort-arrow,
+.sort-order {
+  font-size: 12px;
+  color: #9b59b6;
+  margin-left: 5px;
+}
+
+.text-gray {
+  color: rgba(90, 89, 89, 0.33);
+}
+
+.table-container {
+  padding: 30px;
+  background-color: #f7f7f7;
+}
+
+.search-container {
+  min-height: 90px;
+  padding: 20px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-image: url('./image/logo.svg');
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50%;
+  text-transform: lowercase;
+}
+
+.search-input {
+  width: 600px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #d9d9d9;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+.modal-screen {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  position: relative;
+  width: 400px;
+  background-color: #fff;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.id {
+  color: rgba(90, 89, 89, 0.33);
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url('./image/close.svg');
+}
+
+.header h3 {
+  margin: 20px 0 15px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.form-group label {
+  color: rgba(90, 89, 89, 0.33);
+  font-size: 13px;
+}
+
+.form-group input {
+  padding: 5px;
+  color: #000;
+  font-size: 15px;
+  border: none;
+  border-bottom: 1px solid rgba(90, 89, 89, 0.33);
+}
+
+.add-contact {
+  margin: 0 auto;
+  padding: 5px 5px 5px 20px;
+  width: 150px;
+  background-color: transparent;
+  background-image: url('./image/add.svg');
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+.contact-field {
+  display: grid;
+  grid-template-columns: 123px 1fr 27px;
+  min-height: 37px;
+  border: 1px solid #c8c5d1;
+}
+
+.contact-field select {
+  border: none;
+  border-right: 1px solid #c8c5d1;
+  background-color: #e7e5eb;
+  color: #333;
+}
+
+.contact-field input {
+  border: none;
+  background-color: transparent;
+}
+
+.remove-btn {
+  padding: 0;
+  border-left: 1px solid #c8c5d1;
+  background-image: url('./image/contact-cancel.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.save-contact,
+.confirm-delete {
+  margin: 0 auto;
+  width: 147px;
+  padding: 15px 35px;
+  background-color: #9873ff;
+  color: #fff;
+}
+
+.cancel-btn,
+.delete-contact {
+  display: block;
+  margin: 0 auto;
+  color: #333;
+  font-size: 12px;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.error p {
+  margin: 0 auto;
+  color: #f06a4d;
+  text-align: center;
+  font-size: 10px;
+  max-width: 255px;
+}
+
+.confirm {
+  text-align: center;
+  max-width: 275px;
+  margin: 0 auto;
+}
+
+.confirm span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.required {
+  color: #9873ff;
+}
