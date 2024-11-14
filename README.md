@@ -1,3 +1,4 @@
+[![Node CI](https://github.com/opifexM/contactms/actions/workflows/check.yml/badge.svg)](https://github.com/opifexM/contactms/actions/workflows/check.yml)
 
 # ContactMS
 ContactMS is a web-based user interface for managing client information in a CRM system. This application enables viewing, adding, editing, and deleting clients and offers features like sorting, searching, and contact management.
